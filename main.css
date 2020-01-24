@@ -1,16 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
 .employees{
     display: flex;
-    justify-content: space-around ;
     flex-wrap: wrap;
 }
 
 .employee{
-    background-color: cyan;
-    border: solid 1px black;
-    border-radius: 0.5rem;
-    padding: 1rem 10rem 1rem 10rem;
-    width: 100px;
-    flex: 1;
+    border-radius: 1rem;
     margin: 1rem;
+    padding: 1rem;
+    border: solid 1px black;
+    width: calc(100% / 3 - 2rem);
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+}
 
+.favorite {
+    background-color: blanchedalmond;
 }

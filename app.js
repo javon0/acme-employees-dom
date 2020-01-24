@@ -9,14 +9,25 @@ const employees = [
     { id: 99, name: 'lucy'}
   ];
 
-  const list = document.querySelector('div')
+const list = document.querySelector('div')
 
-  const render = () => {
-      const html = employees.map(employee => {
-          return `<div class = 'employee'>${employee.name}</div>`
-      }).join('')
+list.addEventListener('toggle', ev => {
+    const target = ev.target;
+    const employee = document.getElementsByClassName('employee');
+    const favorite = document.getElementsByClassName('favorite');;
+    if (target.tagName === 'DIV' && target.employee) {
+        target // update class name to favorite
+    } else {
+        // update class name to employee
+    }
+})
 
-      list.innerHTML = html
-  }
+const render = () => {
+    const html = employees.map(employee => {
+        return `<div class = 'employee'>${employee.name}</div>`
+    }).join('')
 
-  render()
+    list.innerHTML = html
+}
+
+render()
