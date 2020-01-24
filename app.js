@@ -28,7 +28,6 @@ const employees = [
      
       if (employees[key].favorite){
         counter++
-        console.log(counter)
       }}}
     render();
   });
