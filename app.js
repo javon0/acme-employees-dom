@@ -8,26 +8,26 @@ const employees = [
     { id: 8, name: 'shep Jr.'},
     { id: 99, name: 'lucy'}
   ];
-
-const list = document.querySelector('div')
-
-list.addEventListener('toggle', ev => {
+  
+  const list = document.querySelector('#employees');
+  
+  list.addEventListener('click', (ev)=> {
     const target = ev.target;
-    const employee = document.getElementsByClassName('employee');
-    const favorite = document.getElementsByClassName('favorite');;
-    if (target.tagName === 'DIV' && target.employee) {
-        target // update class name to favorite
-    } else {
-        // update class name to employee
+    if(target.tagName === 'LI'){
+      const idx = [...list.children].indexOf(target);
+      employees[idx].favorite = !employees[idx].favorite;
     }
-})
-
-const render = () => {
-    const html = employees.map(employee => {
-        return `<div class = 'employee'>${employee.name}</div>`
-    }).join('')
-
-    list.innerHTML = html
-}
-
-render()
+    render();
+  });
+  
+  const render = ()=> {
+    const html = employees.map( employee => {
+      return `
+        <li data-id='${employee.id}' ${ employee.favorite ? "class='favorite'": ''}>${ employee.name }</li>
+      `;
+    }).join('');
+  
+    list.innerHTML = html;
+  };
+  
+  render();
