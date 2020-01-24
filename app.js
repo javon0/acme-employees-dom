@@ -9,14 +9,27 @@ const employees = [
     { id: 99, name: 'lucy'}
   ];
   
+  let counter = 0
   const list = document.querySelector('#employees');
   
   list.addEventListener('click', (ev)=> {
     const target = ev.target;
+    const idx = [...list.children].indexOf(target);
+
+    if (counter > 2 && employees[idx].favorite !== true){
+      alert('Only 3 favorites')
+    }else{
+      counter = 0
     if(target.tagName === 'LI'){
-      const idx = [...list.children].indexOf(target);
       employees[idx].favorite = !employees[idx].favorite;
     }
+
+    for (let key in employees){
+     
+      if (employees[key].favorite){
+        counter++
+        console.log(counter)
+      }}}
     render();
   });
   
